@@ -1,0 +1,23 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+    # which application to be installed
+      docker: 18
+
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - aws --version
+      - $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION) # Login to Amazon ECR
+
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Building the Docker image...
+      - docker build -t ebs-deploy-demo:latest . # Build Docker image
+      - docker push ebs-deploy-demo:latest  # Push Docker image to ECR
+
+artifacts:
+  files: []
