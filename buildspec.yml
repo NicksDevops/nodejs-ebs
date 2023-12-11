@@ -10,7 +10,7 @@ phases:
   pre_build:
     commands:
       - echo Installing Node.js...
-      - curl -sL https://deb.nodesource.com/setup_14.x | bash -
+      - curl -sL https://deb.nodesource.com/setup_18.x | bash -
       - apt-get install -y nodejs
       - echo Logging in to Amazon ECR...
       - aws --version
