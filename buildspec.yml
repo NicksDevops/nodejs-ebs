@@ -14,7 +14,7 @@ phases:
       - apt-get install -y nodejs
       - echo Logging in to Amazon ECR...
       - aws --version
-      - $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION) # Login to Amazon ECR
+      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin 798304154621.dkr.ecr.us-east-1.amazonaws.com/ebs-deploy-demo # Login to Amazon ECR
 
   build:
     commands:
