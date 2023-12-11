@@ -5,7 +5,7 @@ phases:
     runtime-versions:
     # which application to be installed, that is docker and nodejs
       docker: 18
-      nodejs: 12
+      nodejs: 18
 
   pre_build:
     commands:
