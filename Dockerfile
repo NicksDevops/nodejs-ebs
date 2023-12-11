@@ -1,5 +1,5 @@
 # Base image
-FROM node:slim
+FROM node:latest
 
 # Setting the working directory inside the container
 WORKDIR /app
