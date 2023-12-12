@@ -22,6 +22,7 @@ phases:
       - echo Building the Docker image...
       - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 798304154621.dkr.ecr.us-east-1.amazonaws.com
       - docker build -t ebs-deploy-demo .
+      - aws ecr batch-delete-image --repository-name ebs-deploy-demo --image-ids imageTag=latest
       - docker tag ebs-deploy-demo:latest 798304154621.dkr.ecr.us-east-1.amazonaws.com/ebs-deploy-demo:latest
       - docker push 798304154621.dkr.ecr.us-east-1.amazonaws.com/ebs-deploy-demo:latest
     
